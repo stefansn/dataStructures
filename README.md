@@ -7,3 +7,7 @@ Implementation for:
 	-doubly linked lists
 	-circular linked lists
  
+ 	-stack
+		-simple array
+		-dynamic array
+		-linked lists
