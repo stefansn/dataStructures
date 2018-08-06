@@ -54,11 +54,12 @@ void insertCircularNode (NodeC **head, int givenKey, int position){
         while (q->next!=*head){
             q=q->next;
         }
-
+        //insert at beginning (there are more than one nodes)
         if (position==1){
             q->next = newNode;
             newNode->next = *head;
             *head = newNode;
+        //insert anywhere else
         }else{
             do{
                 q=p;
@@ -83,7 +84,7 @@ void deleteCircularNode (NodeC **head, int position){
         return;
     }
 
-    //insert at beginning (there is only a node)
+    //delete from the beginning (there is only a node)
     if (position==1 && *head == (*head)->next){
         printf("1.Deleted key = %d\n",(*head)->key);
         *head = NULL;
@@ -94,14 +95,14 @@ void deleteCircularNode (NodeC **head, int position){
             q=q->next;
         }
 
-        //insert at beginning but there are more than one nodes
+        //delete from the beginning but there are more than one nodes
         if (position==1){
             q->next = p->next;
             *head = q->next;
             printf("2.Deleted key = %d\n",p->key);
             free(p);
         }
-        //insert anywhere else, including the end
+        //delete from anywhere else, including the end
         else{
             while (p->next != *head && k<position){
                 q=p;
